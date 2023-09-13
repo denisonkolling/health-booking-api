@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidadorMedicoComOutraConsulta {
+public class ValidadorMedicoComOutraConsulta implements ValidadorAgendamentoConsulta {
 
     @Autowired
     private ConsultaRepository repository;

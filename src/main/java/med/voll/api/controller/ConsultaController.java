@@ -23,17 +23,14 @@ public class ConsultaController {
     @PostMapping
     @Transactional
     public ResponseEntity agendar(@RequestBody @Valid DadosAgendamentoConsulta dados) throws Exception {
-        agenda.agendar(dados);
-        return ResponseEntity.ok(new DadosAgendamentoConsulta(dados.idMedico(), dados.idPaciente(), dados.data(), dados.especialidade()));
+
+        var dto = agenda.agendar(dados);
+        return ResponseEntity.ok(dto);
     }
 
     @GetMapping
     public List<DadosListagemConsulta> listar(){
         return consultaRepository.findAll().stream().map(DadosListagemConsulta::new).toList();
     }
-
-//    public List<DadosListagemMedico> listar() {
-//        return repository.findAll().stream().map(DadosListagemMedico::new).toList();
-//    }
 
 }
