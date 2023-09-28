@@ -33,4 +33,12 @@ public class ConsultaController {
         return consultaRepository.findAll().stream().map(DadosListagemConsulta::new).toList();
     }
 
+    @DeleteMapping
+    @Transactional
+    public ResponseEntity cancelar(@RequestBody @Valid DadosCancelamentoConsulta dados) {
+        agenda.cancelar(dados);
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
