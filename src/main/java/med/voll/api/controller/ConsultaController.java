@@ -29,8 +29,9 @@ public class ConsultaController {
     }
 
     @GetMapping
-    public List<DadosListagemConsulta> listar(){
-        return consultaRepository.findAll().stream().map(DadosListagemConsulta::new).toList();
+    public ResponseEntity <List<DadosListagemConsulta>> listar(){
+        var listaConsultas = consultaRepository.findAll().stream().map(DadosListagemConsulta::new).toList();
+        return ResponseEntity.ok(listaConsultas);
     }
 
     @DeleteMapping
