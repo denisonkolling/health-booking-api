@@ -25,6 +25,8 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //TODO: Implementar FetchType LAZY que não afete listar consultas
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "medico_id")
     private Medico medico;
